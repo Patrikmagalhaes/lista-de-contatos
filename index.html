@@ -11,11 +11,12 @@
     <header>
         <h1>Lista de Contatos</h1>
     </header>
-    <form action="">
+    <form action="" id="formulario-de-contato">
         <span>Digite o nome</span>
-        <input type="text" required placeholder="Nome...">
+        <input id="nome-contato" type="text" required placeholder="Nome...">
         <span>Digite o numero</span>
-        <input type="number" name="" id="" required placeholder="(00)00000-0000">
+        <input id="numero-contato" type="number" name="" id="" required placeholder="(00)00000-0000">
+        <button type="submit">Adicionar</button>
     </form>
     <table>
         <thead>
@@ -24,11 +25,13 @@
         </thead>
         <tbody>
             <tr>
-                <td>Patrik</td>
-                 <td>69999523234</td>
+                <td id="nome-digitado">Patrik</td>
+                <td id="numero-digitado">69999523234</td>
             </tr>
         </tbody>
     </table>
+    <script src="./main.js"></script>
 </body>
+
 
 </html>
