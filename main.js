@@ -1,21 +1,27 @@
 const form = document.getElementById("formulario-de-contato")
-const tdnome = document.getElementById("nome-digitado")
-const tdnumero = document.getElementById("numero-digitado")
 const nome = []
 const numero = []
+let linhas = ""
 form.addEventListener("submit", function (e) {
     e.preventDefault()
-
-
 
     const inputNome = document.querySelector("#nome-contato").value
     const inputNumero = document.querySelector("#numero-contato").value
 
     nome.push(inputNome)
-    numero.push(inputNumero)
+    numero.push(parseFloat(inputNumero))
 
-    tdnome.innerHTML = inputNome
-    tdnumero.innerHTML = inputNumero
+    let linha = '<tr>'
+    linha += `<td>${nome[nome.length - 1]}</td>`
+    linha += `<td>${numero[nome.length - 1]}</td>`
+    linha += '</tr>'
 
-    console.log(nome)
+    linhas += linha
+
+    const corpotabela = document.querySelector('tbody')
+    corpotabela.innerHTML = linhas
+
 })
+
+
+
