@@ -1,0 +1,20 @@
+.picture-input {
+    display: none;
+}
+
+.picture {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+}
+
+.imagem {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
