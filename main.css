@@ -64,3 +64,6 @@ form {
     height: 100px;
     border-radius: 100%;
 }
+.label-off{
+    display: none;
+}
