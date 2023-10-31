@@ -32,7 +32,7 @@ form.addEventListener("submit", function (e) {
         numero.push(parseFloat(inputNumero.value))
         //adiciona uma linha com os dados das variaveis
         let linha = '<tr>'
-        linha = + `<input id="img" type="file" name="" class="picture-input" accept="image/*">`
+        linha = + label
         linha += `<td>${nome[nome.length - 1]}</td>`
         linha += `<td>${numero[nome.length - 1]}</td>`
         linha += '</tr>'
