@@ -2,12 +2,8 @@ const form = document.getElementById("formulario-de-contato")
 const nome = []
 const numero = []
 let linhas = ""
-const inputFile = document.querySelector(".picture-input")
-const spanPicture = document.querySelector(".picture-image")
-const pictureImageTxt = "Escolher"
-spanPicture.innerHTML = pictureImageTxt
-const label = document.querySelector(".picture")
-label.classList.add("label-off")
+const urlImagem = []
+
 
 //executa quando o formulario é enviado
 form.addEventListener("submit", function (e) {
@@ -16,9 +12,6 @@ form.addEventListener("submit", function (e) {
     //seleciona os inputs do formulario
     const inputNome = document.querySelector("#nome-contato")
     const inputNumero = document.querySelector("#numero-contato")
-
-    const label = document.createElement("label")
-    label.className = "picture"
 
     //testa se ja existe o numero registrado
     if (numero.includes(parseFloat(inputNumero.value))) {
@@ -32,21 +25,20 @@ form.addEventListener("submit", function (e) {
         numero.push(parseFloat(inputNumero.value))
         //adiciona uma linha com os dados das variaveis
         let linha = '<tr>'
-        linha = + label
+        linha += `<td>${urlImagem[urlImagem.length - 1]}</td>`
         linha += `<td>${nome[nome.length - 1]}</td>`
         linha += `<td>${numero[nome.length - 1]}</td>`
         linha += '</tr>'
 
         linhas += linha
 
-        //seleciona o corpotabela e atualiza ela com os dados 
+        //seleciona a tag tbody e atualiza ela com os dados 
         const corpotabela = document.querySelector('tbody')
         corpotabela.innerHTML = linhas
         //limpa os inputs
         inputNome.value = ""
         inputNumero.value = ""
     }
-
 
     inputFile.addEventListener("change", function (e) {
         // Quando ocorrer uma mudança no elemento "inputFile" (geralmente um input do tipo 'file'),
@@ -57,7 +49,6 @@ form.addEventListener("submit", function (e) {
         // armazena o primeiro o primeiro arquivo.
         // files é uma propiedade do input type="file"
         const file = inputTarget.files[0];
-
 
         if (file) {
             // Verifica se um arquivo foi selecionado.
@@ -90,15 +81,9 @@ form.addEventListener("submit", function (e) {
 
                 spanPicture.appendChild(img);
                 // Adiciona o elemento 'img' como filho do elemento com o ID 'spanPicture'.
+                img.push(urlImagem)
             });
         }
 
     });
-
-
-
 })
-
-
-
-
