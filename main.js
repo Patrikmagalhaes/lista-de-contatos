@@ -2,10 +2,7 @@ const form = document.getElementById("formulario-de-contato")
 const nome = []
 const numero = []
 let linhas = ""
-const urlImagem = []
 
-
-//executa quando o formulario é enviado
 form.addEventListener("submit", function (e) {
     e.preventDefault()
 
@@ -25,7 +22,10 @@ form.addEventListener("submit", function (e) {
         numero.push(parseFloat(inputNumero.value))
         //adiciona uma linha com os dados das variaveis
         let linha = '<tr>'
-        linha += `<td>${urlImagem[urlImagem.length - 1]}</td>`
+       /* linha += `<td> <label>
+        <span  class="picture" for="picture-input"></span>
+        <input class="picture-input" type="file">
+        </label></td>`*/
         linha += `<td>${nome[nome.length - 1]}</td>`
         linha += `<td>${numero[nome.length - 1]}</td>`
         linha += '</tr>'
@@ -38,21 +38,17 @@ form.addEventListener("submit", function (e) {
         //limpa os inputs
         inputNome.value = ""
         inputNumero.value = ""
+
     }
 
+    const inputFile = document.querySelector(".picture-input")
     inputFile.addEventListener("change", function (e) {
-        // Quando ocorrer uma mudança no elemento "inputFile" (geralmente um input do tipo 'file'),
-        // essa função será acionada.
-
         const inputTarget = e.target;
         // A variável 'inputTarget' armazena a referência do elemento que disparou o evento.
-        // armazena o primeiro o primeiro arquivo.
         // files é uma propiedade do input type="file"
         const file = inputTarget.files[0];
 
         if (file) {
-            // Verifica se um arquivo foi selecionado.
-            //Classe incorporada do javascript
             const reader = new FileReader();
             // Cria um novo objeto FileReader, que permite a leitura de conteúdo de arquivos.
 
@@ -60,28 +56,18 @@ form.addEventListener("submit", function (e) {
             // Inicia a leitura do conteúdo do arquivo como uma URL de dados.
 
             reader.addEventListener("load", function (e) {
-                // Quando a leitura do arquivo estiver completa, esta função será acionada.
-
                 const inputTarget = e.target;
-                // Esta linha não é necessária, pois a variável 'inputTarget' já foi definida acima. 
-                // Ela está capturando o mesmo elemento que acionou o evento 'load'.
-
                 const img = document.createElement("img");
                 // Cria um novo elemento HTML 'img'.
 
                 img.src = inputTarget.result;
                 // Define o atributo 'src' da imagem como o resultado da leitura do arquivo. 
-                // Isso carrega o conteúdo do arquivo na imagem.
-
                 img.classList.add("imagem");
-                // Adiciona a classe 'imagem' ao elemento 'img'.
 
-                spanPicture.innerHTML = "";
-                // Limpa todo o conteúdo que estava dentro do elemento com o ID 'spanPicture'.
-
-                spanPicture.appendChild(img);
+                let spanImagem = document.querySelector(".picture")
+                spanImagem.innerHTML = "";
+                spanImagem.appendChild(img);
                 // Adiciona o elemento 'img' como filho do elemento com o ID 'spanPicture'.
-                img.push(urlImagem)
             });
         }
 

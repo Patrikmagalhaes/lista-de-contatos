@@ -39,10 +39,6 @@ form {
     margin-bottom: 10px;
 }
 
-.perfil {
-    border-radius: 100%;
-    width: 50px;
-}
 
 .picture-input {
     display: none;
@@ -56,14 +52,11 @@ form {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: aqua;
+    background-color: rgb(88, 233, 21);
 }
 
 .imagem {
     width: 100px;
     height: 100px;
     border-radius: 100%;
-}
-.label-off{
-    display: none;
 }
